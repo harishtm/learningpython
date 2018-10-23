@@ -3,5 +3,5 @@ def greeting(name: str) -> str:
 
 
 if __name__ == '__main__':
-    name = int(input('Enter your name : '))
+    name = input('Enter your name : ')
     print(greeting(name))
