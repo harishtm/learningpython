@@ -1,6 +1,10 @@
 """
     Program to demonstrate Sealed classes in python3.x style
     Using: __init_subclass__
+
+    creating the classes that cannot be subclassed (final classes)
+    https://stackoverflow.com/questions/2825364/final-classes-in-python-3-x-something-guido-isnt-telling-me
+    https://stackoverflow.com/questions/5181578/what-is-the-point-of-final-class-in-java
 """
 
 class Base:
