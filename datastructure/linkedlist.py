@@ -1,46 +1,61 @@
+# Python program to reverse a linked list
+# Time Complexity : O(n)
+# Space Complexity : O(1)
+
+
 class Node:
-    """
-        Creating a node
-        info field / link field
-    """
+    # Constructor to initialize the node object
     def __init__(self, data):
         self.data = data
         self.next = None
 
 
 class LinkedList:
-    """
-        Linked List
-    """
-    
+
+    # Function to initialize head
     def __init__(self):
         self.head = None
-        self.last_node = None
-    
-    def append(self, data):
-        if self.last_node is None:
-            self.head = Node(data)
-            self.last_node = self.head
-        else:
-            self.last_node.next = Node(data)
-            self.last_node = self.last_node.next
-    
-    def display(self):
+
+    # Function to reverse the linked list
+    def reverse(self):
+        prev = None
         current = self.head
-        while current is not None:
-            # print(current.data, end="=>")
-            print(hex(id(current)), current.__dict__, end=",")
-            print("\n")
-            current = current.next
+        while(current is not None):
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+
+    # Function to insert a new node at the beginning
+    def push(self, new_data):
+        new_node = Node(new_data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def printList(self):
+        temp = self.head
+        while(temp):
+            # print(temp.data)
+            # print(hex(id(temp)), temp.__dict__, end=",")
+            # print("\n")
+            # print(temp.data, end="=>")
+            print(id(temp), "===", temp.data, "===", id(temp.next))
+            temp = temp.next
+        print("\n")
 
 
-if __name__ == "__main__":
-    l = LinkedList()
-    l.append(10)
-    l.append(20)
-    l.append(30)
-    l.append(40)
-    l.append(50)
-    l.append(60)
-    l.append(70)
-    l.display()
+# Driver program to test above functions
+llist = LinkedList()
+llist.push(10)
+llist.push(20)
+llist.push(30)
+llist.push(40)
+llist.push(50)
+llist.push(60)
+
+print("Given Linked List")
+llist.printList()
+llist.reverse()
+print("\nReversed Linked List")
+llist.printList()
