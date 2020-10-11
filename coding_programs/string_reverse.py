@@ -14,10 +14,15 @@ def custom_reverse(sample_str):
 
 if __name__ == "__main__":
 
-    if sys.version_info < (2,6,0):
-        input = input
-    else:
+    if sys.version_info.major == 2 and sys.version_info.minor < 8:
         input = raw_input
+    else:
+        input = input
 
     sample_str = input("Enter the string to reverse: ")
+    print("Slicing technique", sample_str[::-1])
+    print("using reversed", "".join(reversed(sample_str)))
     print(custom_reverse(sample_str))
+
+# Slicing technique is more effecient
+# https://dbader.org/blog/python-reverse-string
