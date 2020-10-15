@@ -12,6 +12,17 @@ def custom_reverse(sample_str):
     return "".join(ch)
 
 
+def str_rev(sample_str):
+    """
+        Alternate to reverse string
+    """
+    tmp, res = "", ""
+    for i in sample_str:
+        res = i + tmp
+        tmp = res
+    return res
+
+
 if __name__ == "__main__":
 
     if sys.version_info.major == 2 and sys.version_info.minor < 8:
@@ -23,6 +34,7 @@ if __name__ == "__main__":
     print("Slicing technique", sample_str[::-1])
     print("using reversed", "".join(reversed(sample_str)))
     print(custom_reverse(sample_str))
+    print(str_rev(sample_str))
 
 # Slicing technique is more effecient
 # https://dbader.org/blog/python-reverse-string
